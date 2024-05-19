@@ -15,7 +15,7 @@ const Skills = () => {
                     <div className='card p-6 shadow-xl rounded-xl shadow-blue-300 hover:scale-105 ease-in duration-300'>                   
                     <div className='grid grid-cols-2 gap-4 justify-center items-center'>
                         <div className='m-auto'>
-                        <Image src='/../public/skills_js.png' width='64' height='64' alt='/' />
+                        <Image src='/Imagenes/skills_js.png' width='64' height='64' alt='/' />
                         </div>  
                         <div className='flex flex-col items-center justify-center'>
                             <h3>JAVASCRIPT</h3>
