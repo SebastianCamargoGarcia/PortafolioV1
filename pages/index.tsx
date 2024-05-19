@@ -10,7 +10,7 @@ export default function Home () {
   return (
     <div className="">
       <Head>
-        <title>Client | Front-End Developer</title>
+        <title>Sebastian Camargo G</title>
         <link rel="icon" href="/favicon.ico" /> 
       </Head>
 
