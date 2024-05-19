@@ -7,13 +7,13 @@ const About = () => {
         <div className='max-w-[1240px] m-auto md:grid grid-cols-3 gap-8'>
             <div className='col-span-2'>
                 <p className='uppercase text-xl tracking-widest text-[#5651e5] '>¡Sobre mi!</p>
-                <p className='py-2 text-gray-600'>Trabaje en <span style={{ color: '#11A0D9' }}>NEDUGA TECH</span> bridando soporte técnico especializado a
+                <p className='py-2 text-gray-600'>Trabajé en <span style={{ color: '#11A0D9' }}>NEDUGA TECH</span> brindando soporte técnico especializado a
                                                     usuarios de SAP B1, resolviendo incidencias 
                                                     y proporcionando soluciones eficientes para garantizar la continuidad operativa, 
                                                     asimismo, realice restricciones personalizadas en la base de datos para garantizar la 
                                                     integridad y coherencia de los datos, incluyendo validaciones de campos 
                                                     obligatorios y reglas de negocio utilizando Stored Procedures (SP) en SQL Server 
-                                                    para adaptar el sistema a las necesidades específicas de cada cliente
+                                                    para adaptar el sistema a las necesidades específicas de cada cliente.
                                                     <br></br>
                                                     Tambien he adquirido habilidades valiosas a través de proyectos académicos y personales, 
                                                     demostrando mi capacidad para abordar desafíos técnicos y colaborar en 

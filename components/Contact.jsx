@@ -23,6 +23,17 @@ const Contact = () => {
       setSuccessMessage('');
       return;
     }
+    if (contactEmail.length < 15) {
+      setErrorMessage('El correo electrónico parece no ser valido');
+      setSuccessMessage('');
+      return;
+    }
+    if (!/^\d{10}$/.test(phone)) {
+      setErrorMessage('El número de teléfono debe tener exactamente 10 dígitos');
+      setSuccessMessage('');
+      return;
+    }
+
     const res = await fetch('/api/contact', {
       method: 'POST',
       headers: {
@@ -46,7 +57,7 @@ const Contact = () => {
   };
 
   const email = 'ssebastiancamargo19@gmail.com';
-  const numero = ' +57 3005516355';
+  const numero = '+57 3005516355';
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(email);
@@ -164,7 +175,12 @@ const Contact = () => {
                       className='border-2 rounded-lg p-3 flex border-blue-300'
                       type="text"
                       value={phone}
-                      onChange={(e) => setPhone(e.target.value)}
+                      onChange={(e) => {
+                        const phoneInput = e.target.value;
+                        if (/^\d*$/.test(phoneInput) && phoneInput.length <= 10) {
+                          setPhone(phoneInput);
+                        }
+                      }}
                       required
                     />
                   </div>           
@@ -188,7 +204,7 @@ const Contact = () => {
                   <span className='button-content'>Enviar</span>
                 </button>
               </form>
-            </div>
+              </div>
           </div>
         </div>
 
