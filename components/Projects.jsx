@@ -1,9 +1,9 @@
 import Image from 'next/image'
 import React from 'react'
-import fastjobs from '../public/fastjobs.png'
-import loginpy from '../public/loginpy.png'
-import img_api from '../public/img_api.png'
-import healthtrack from '../public/healttrack.png'
+import fastjobs from '../public/imagenes/fastjobs.png'
+import loginpy from '../public/imagenes/loginpy.png'
+import img_api from '../public/imagenes/img_api.png'
+import healthtrack from '../public/imagenes/healttrack.png'
 import Link from 'next/link'
 
 const Projects = () => {
