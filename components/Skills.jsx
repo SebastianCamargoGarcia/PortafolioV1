@@ -7,7 +7,7 @@ const Skills = () => {
             <div className='max-w-[1240px] mx-auto flex flex-col justify-center h-full'>
                 <p className='text-xl tracking-widest uppercase text-[#5651e5]'>Skills</p>
                 <h3 className='py-4'>Tengo solidos conocimientos en los siguientes lenguajes y framework</h3>
-                <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8'>
+                <div className='grid md:grid-cols-2 lg:grid-cols-5 gap-8'>
                     <div className='min-w-[200px] card p-6 shadow-xl rounded-xl shadow-blue-300 hover:scale-105 ease-in duration-300'>
                         <div className='grid grid-cols-2 gap-4 justify-center items-center'>
                             <div className='m-auto'>
@@ -62,7 +62,7 @@ const Skills = () => {
                         </div>
                     </div>
 
-                    <div className='min-w-[200px] card p-6 shadow-xl rounded-xl shadow-blue-300 hover:scale-105 ease-in duration-300'>
+                    <div className='card p-6 shadow-xl rounded-xl shadow-blue-300 hover:scale-105 ease-in duration-300'>
                         <div className='grid grid-cols-2 gap-4 justify-center items-center'>
                             <div className='m-auto'>
                                 <Image src='/Imagenes/skills_next-js.png' width='64' height='64' alt='/' />
@@ -73,7 +73,7 @@ const Skills = () => {
                         </div>
                     </div>
 
-                    <div className='min-w-[200px] card p-6 shadow-xl rounded-xl shadow-blue-300 hover:scale-105 ease-in duration-300'>
+                    <div className='card p-6 shadow-xl rounded-xl shadow-blue-300 hover:scale-105 ease-in duration-300'>
                         <div className='grid grid-cols-2 gap-4 justify-center items-center'>
                             <div className='m-auto'>
                                 <Image src='/Imagenes/skills_Tailwind_CSS.png' width='64' height='64' alt='/' />
@@ -84,7 +84,7 @@ const Skills = () => {
                         </div>
                     </div>
 
-                    <div className='min-w-[200px] card p-6 shadow-xl rounded-xl shadow-blue-300 hover:scale-105 ease-in duration-300'>
+                    <div className='card p-6 shadow-xl rounded-xl shadow-blue-300 hover:scale-105 ease-in duration-300'>
                         <div className='grid grid-cols-2 gap-4 justify-center items-center'>
                             <div className='m-auto'>
                                 <Image src='/Imagenes/skills_bootstrap.png' width='64' height='64' alt='/' />
@@ -95,7 +95,7 @@ const Skills = () => {
                         </div>
                     </div>
 
-                    <div className='min-w-[200px] card p-6 shadow-xl rounded-xl shadow-blue-300 hover:scale-105 ease-in duration-300'>
+                    <div className='card p-6 shadow-xl rounded-xl shadow-blue-300 hover:scale-105 ease-in duration-300'>
                         <div className='grid grid-cols-2 gap-4 justify-center items-center'>
                             <div className='m-auto'>
                                 <Image src='/Imagenes/skills_css.png' width='64' height='64' alt='/' />
@@ -105,7 +105,7 @@ const Skills = () => {
                             </div>
                         </div>
                     </div>
-                    <div className='min-w-[200px] card p-6 shadow-xl rounded-xl shadow-blue-300 hover:scale-105 ease-in duration-300'>
+                    <div className='card p-6 shadow-xl rounded-xl shadow-blue-300 hover:scale-105 ease-in duration-300'>
                         <div className='grid grid-cols-2 gap-4 justify-center items-center'>
                             <div className='m-auto'>
                                 <Image src='/Imagenes/skills_sqlserver.png' width='64' height='64' alt='/' />
@@ -116,7 +116,7 @@ const Skills = () => {
                         </div>
                     </div>
 
-                    <div className='min-w-[200px] card p-6 shadow-xl rounded-xl shadow-blue-300 hover:scale-105 ease-in duration-300'>
+                    <div className='card p-6 shadow-xl rounded-xl shadow-blue-300 hover:scale-105 ease-in duration-300'>
                         <div className='grid grid-cols-2 gap-4 justify-center items-center'>
                             <div className='m-auto'>
                                 <Image src='/Imagenes/skills_MySQL.png' width='64' height='64' alt='/' />
@@ -127,7 +127,7 @@ const Skills = () => {
                         </div>
                     </div>
 
-                    <div className='min-w-[200px] card p-6 shadow-xl rounded-xl shadow-blue-300 hover:scale-105 ease-in duration-300'>
+                    <div className='card p-6 shadow-xl rounded-xl shadow-blue-300 hover:scale-105 ease-in duration-300'>
                         <div className='grid grid-cols-2 gap-4 justify-center items-center'>
                             <div className='m-auto'>
                                 <Image src='/Imagenes/skills_html.png' width='64' height='64' alt='/' />
