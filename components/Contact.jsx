@@ -135,7 +135,7 @@ const Contact = () => {
           <div className='col-span-3 w-full h-full shadow-xl shadow-blue-400 rounded-xl p-4 lg:p4'>
             <div className='p-4'>
               <form onSubmit={handleSubmit}>
-                <h4 className='py-4 text-gray-700'><span className='text-blue-500'>Por favor, Ingrese sus datos, estos serán enviados mi correo.</span></h4>
+                <h4 className='py-4 text-gray-700'><span className='text-blue-500'>Por favor, Ingrese sus datos, estos serán enviados a mi correo.</span></h4>
                 <div className='grid md:grid-cols-2 gap-4 w-full py-2'>
                   <div className='flex flex-col'>
                     <label className='uppercase text-sm py-2'>Nombre completo</label>
