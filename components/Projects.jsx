@@ -8,7 +8,7 @@ import Link from 'next/link'
 
 const Projects = () => {
     return (
-      <div id='projects' className='w-full'>
+      <div id='projects' className='w-full p-10 sm:p-8'>
         <div className='max-w-[1240px] mx-auto px-2 py-16'>
           <p className='text-xl tracking-widest uppercase text-[#5651e5]'>Proyectos</p>
           <h2 className='py-4'>He creado y/o participado en estos proyectos</h2>
