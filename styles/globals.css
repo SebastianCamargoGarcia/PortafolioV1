@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+html {
+  scroll-behavior: smooth;
+  font-family: 'Raleway', sans-serif;
+}
+
+@layer base{
+    body{
+        @apply bg-[#ecf0f3] text-[#1f2937] tracking-wide
+
+    }
+
+    h1, h2, h3, h4, h5, h6{
+        @apply font-bold
+    }
+
+    h1{
+        @apply text-4xl sm:text-5xl md:text-6xl
+    }
+
+    h2{
+        @apply text-4xl sm:text-4xl
+    }
+
+    li{
+        @apply cursor-pointer
+
+    }
+
+    button{
+        @apply shadow-xl shadow-gray-400 rounded-xl uppercase bg-gradient-to-r from-[#5651e5] to-[#709dff] text-white
+
+    }
+      .card:hover{
+        background: #ffffff ; 
+      }
+      .card h3 {
+        color:rgb(86, 81, 229);
+        transition: opacity 0.5s ease;
+      }
+      
+      .card:hover h3 {
+        opacity: 1;
+      }
+      
+      .button {
+        position: relative;
+        overflow: hidden;
+        height: 3rem;
+        padding: 0 2rem;
+        border-radius: 1.5rem;
+        background: #3a444e;
+        background-size: 400%;
+        color: #fff;
+      }
+      
+      .button:hover::before {
+        transform: scaleX(1);
+      }
+      
+      .button-content {
+        position: relative;
+        z-index: 1;
+      }
+      
+      .button::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: scaleX(0);
+        transform-origin: 0 50%;
+        width: 100%;
+        height: inherit;
+        border-radius: inherit;
+        background: linear-gradient(
+          82.3deg,
+          rgb(93, 142, 233) 10.8%,
+          rgba(99, 88, 238, 1) 94.3%
+        );
+        transition: all 0.475s;
+      }
+      }
+
+   
