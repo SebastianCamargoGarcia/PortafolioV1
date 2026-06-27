@@ -7,6 +7,11 @@
 html {
   scroll-behavior: smooth;
   font-family: 'Raleway', sans-serif;
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
 }
 
 @layer base{
@@ -20,11 +25,11 @@ html {
     }
 
     h1{
-        @apply text-4xl sm:text-5xl md:text-6xl
+        @apply text-3xl sm:text-5xl md:text-6xl
     }
 
     h2{
-        @apply text-4xl sm:text-4xl
+        @apply text-2xl sm:text-3xl md:text-4xl
     }
 
     li{

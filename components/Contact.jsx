@@ -72,17 +72,17 @@ const Contact = () => {
   };
 
   return (
-    <div id='contact' className='w-full lg:h-screen p-10 sm:p-8'>
-      <div className='max-w-[1240px] m-auto px-2 py-16 w-full'>
-        <p className='text-xl tracking-widest uppercase text-[#5651e5]'>Contactame</p>
+    <div id='contact' className='w-full px-5 sm:px-8 lg:px-10 py-14 sm:py-16'>
+      <div className='max-w-[1240px] m-auto w-full'>
+        <p className='text-sm sm:text-xl tracking-widest uppercase text-[#5651e5]'>Contactame</p>
         
         <div className='grid lg:grid-cols-5 gap-8'>
           {/* Izquierda */}
-          <div className='col-span-3 lg:col-span-2 w-full h-full shadow-xl shadow-blue-400 rounded-xl p-4'>
+          <div className='lg:col-span-2 w-full h-full shadow-xl shadow-blue-400 rounded-xl p-4'>
             <div className='lg:p-4 h-full'>
             <h2 className='py-4'>Ponte en contacto</h2>
               <div>
-                <img className='rounded-xl hover:scale-105 ease-in duration-300' src='/Imagenes/yo_dibujo.png' alt="/" />
+                <img className='rounded-xl w-full max-w-[360px] mx-auto hover:scale-105 ease-in duration-300' src='/Imagenes/yo_dibujo.png' alt="/" />
               </div>
 
               <div>
@@ -92,22 +92,22 @@ const Contact = () => {
                 </p>
               </div>
               <div>
-                <p className='text-xl tracking-widest  text-[#5651e5] pt-8'>Puedes encontrarme aquí</p>
-                <div className='flex items-center justify-between py-4'>
+                <p className='text-base sm:text-xl tracking-widest text-[#5651e5] pt-8'>Puedes encontrarme aquí</p>
+                <div className='flex flex-wrap items-center gap-4 py-4'>
                   <Link href='https://www.linkedin.com/in/sebastian-camargo-fullstackdeveloper/'>
-                    <div className='rounded-full shadow-lg shadow-blue-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300'>
+                    <div className='rounded-full shadow-lg shadow-blue-400 p-4 sm:p-6 cursor-pointer hover:scale-110 ease-in duration-300'>
                       <FaLinkedinIn />
                     </div>
                   </Link>
 
                   <Link href='https://github.com/SebastianCamargoGarcia'>
-                    <div className='rounded-full shadow-lg shadow-blue-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300'>
+                    <div className='rounded-full shadow-lg shadow-blue-400 p-4 sm:p-6 cursor-pointer hover:scale-110 ease-in duration-300'>
                       <FaGithub />
                     </div>
                   </Link>
 
                   <div 
-                    className='rounded-full shadow-lg shadow-blue-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300'
+                    className='rounded-full shadow-lg shadow-blue-400 p-4 sm:p-6 cursor-pointer hover:scale-110 ease-in duration-300'
                     onClick={copyToClipboard}
                     onMouseEnter={() => setShowCopyMessageEmail(true)}
                     onMouseLeave={() => setShowCopyMessageEmail(false)}
@@ -119,7 +119,7 @@ const Contact = () => {
                   </div>
                   
                   <div 
-                    className='rounded-full shadow-lg shadow-blue-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300'
+                    className='rounded-full shadow-lg shadow-blue-400 p-4 sm:p-6 cursor-pointer hover:scale-110 ease-in duration-300'
                     onClick={copyToNumero}
                     onMouseEnter={() => setShowCopyMessageNumero(true)}
                     onMouseLeave={() => setShowCopyMessageNumero(false)}
@@ -135,15 +135,15 @@ const Contact = () => {
           </div>
 
           {/* Derecha */}
-          <div className='col-span-3 w-full h-full shadow-xl shadow-blue-400 rounded-xl p-4 lg:p4'>
-            <div className='p-4'>
+          <div className='lg:col-span-3 w-full h-full shadow-xl shadow-blue-400 rounded-xl p-4'>
+            <div className='p-0 sm:p-4'>
               <form onSubmit={handleSubmit}>
                 <h4 className='py-4 text-gray-700'>
                   <span className='text-blue-500'>
                     Cuéntame sobre tu proyecto, integración o necesidad de automatización. Recibiré el mensaje en mi correo.
                   </span>
                 </h4>
-                <div className='grid md:grid-cols-2 gap-4 w-full py-2'>
+                <div className='grid gap-4 w-full py-2 md:grid-cols-2'>
                   <div className='flex flex-col'>
                     <label className='uppercase text-sm py-2'>Nombre completo</label>
                     <input
@@ -198,7 +198,7 @@ const Contact = () => {
                   <label className='uppercase text-sm py-2'>Mensaje</label>
                   <textarea
                     className='border-2 rounded-lg p-3 border-gray-300'
-                    rows='10'
+                    rows='7'
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     required
@@ -216,7 +216,7 @@ const Contact = () => {
           </div>
         </div>
 
-        <div className='fixed bottom-4 left-1/2 transform -translate-x-1/2'>
+        <div className='hidden sm:fixed sm:bottom-4 sm:left-1/2 sm:block sm:-translate-x-1/2'>
           <Link href='/'>
             <div className='rounded-full shadow-lg shadow-gray-400 p-4 cursor-pointer hover:scale-110 ease-in duration-300'>
               <HiOutlineChevronDoubleUp className='text-[#5651e5]' size={30} />

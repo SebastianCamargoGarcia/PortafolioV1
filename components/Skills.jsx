@@ -29,26 +29,26 @@ const skillGroups = [
 
 const Skills = () => {
     return (
-        <div id='skills' className='w-full p-10 sm:p-8'>
+        <div id='skills' className='w-full px-5 sm:px-8 lg:px-10 py-14 sm:py-16'>
             <div className='max-w-[1240px] mx-auto flex flex-col justify-center h-full'>
-                <p className='text-xl tracking-widest uppercase text-[#5651e5]'>Habilidades Técnicas</p>
+                <p className='text-sm sm:text-xl tracking-widest uppercase text-[#5651e5]'>Habilidades Técnicas</p>
                 <h2 className='py-4'>Stack para crear productos completos, integraciones y automatizaciones</h2>
                 <p className='text-gray-600 max-w-[850px] leading-relaxed pb-8'>
                     Trabajo desde el diseño de interfaces hasta APIs, bases de datos, despliegues y procesos
                     empresariales conectados con ERP.
                 </p>
-                <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
+                <div className='grid gap-5 sm:gap-8 md:grid-cols-2 lg:grid-cols-3'>
                     {skillGroups.map((group) => (
                         <div
                             key={group.title}
-                            className='card p-6 shadow-xl rounded-xl shadow-blue-300 hover:scale-105 ease-in duration-300 bg-[#ecf0f3]'
+                            className='card p-5 sm:p-6 shadow-xl rounded-xl shadow-blue-300 hover:scale-105 ease-in duration-300 bg-[#ecf0f3]'
                         >
                             <h3 className='text-[#5651e5]'>{group.title}</h3>
                             <div className='flex flex-wrap gap-2 pt-4'>
                                 {group.skills.map((skill) => (
                                     <span
                                         key={`${group.title}-${skill}`}
-                                        className='rounded-full bg-white px-3 py-2 text-sm text-gray-700 shadow-sm'
+                                        className='rounded-full bg-white px-3 py-2 text-xs sm:text-sm text-gray-700 shadow-sm'
                                     >
                                         {skill}
                                     </span>
