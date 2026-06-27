@@ -10,7 +10,17 @@ export default function Home () {
   return (
     <div className="">
       <Head>
-        <title>Sebastian Camargo G</title>
+        <title>Sebastian Camargo | Full Stack Developer</title>
+        <meta
+          name="description"
+          content="Portafolio de Sebastian Camargo, Desarrollador Full Stack especializado en .NET, SAP Business One, Next.js, NestJS, Flutter, Supabase e integraciones empresariales."
+        />
+        <meta name="author" content="Sebastian David Camargo Garcia" />
+        <meta property="og:title" content="Sebastian Camargo | Full Stack Developer" />
+        <meta
+          property="og:description"
+          content="APIs REST, integraciones SAP Business One, dashboards administrativos y aplicaciones web modernas."
+        />
         <link rel="icon" href="/favicon.ico" /> 
       </Head>
 

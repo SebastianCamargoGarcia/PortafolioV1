@@ -87,11 +87,14 @@ const Contact = () => {
 
               <div>
                 <h2 className='text-[#5651e5] py-2'>Sebastian CG.</h2>
+                <p className='text-gray-600'>
+                  Desarrollador Full Stack enfocado en integraciones, APIs REST, dashboards y automatización de procesos.
+                </p>
               </div>
               <div>
                 <p className='text-xl tracking-widest  text-[#5651e5] pt-8'>Puedes encontrarme aquí</p>
                 <div className='flex items-center justify-between py-4'>
-                  <Link href='https://www.linkedin.com/in/sebastian-camargo-2998b7177/'>
+                  <Link href='https://www.linkedin.com/in/sebastian-camargo-fullstackdeveloper/'>
                     <div className='rounded-full shadow-lg shadow-blue-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300'>
                       <FaLinkedinIn />
                     </div>
@@ -135,7 +138,11 @@ const Contact = () => {
           <div className='col-span-3 w-full h-full shadow-xl shadow-blue-400 rounded-xl p-4 lg:p4'>
             <div className='p-4'>
               <form onSubmit={handleSubmit}>
-                <h4 className='py-4 text-gray-700'><span className='text-blue-500'>Por favor, Ingrese sus datos, estos serán enviados a mi correo.</span></h4>
+                <h4 className='py-4 text-gray-700'>
+                  <span className='text-blue-500'>
+                    Cuéntame sobre tu proyecto, integración o necesidad de automatización. Recibiré el mensaje en mi correo.
+                  </span>
+                </h4>
                 <div className='grid md:grid-cols-2 gap-4 w-full py-2'>
                   <div className='flex flex-col'>
                     <label className='uppercase text-sm py-2'>Nombre completo</label>
