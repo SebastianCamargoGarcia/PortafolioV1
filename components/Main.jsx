@@ -23,39 +23,39 @@ const Main = () => {
   };
 
   return (
-    <div id='main' className='w-full h-screen text-center'>
-      <div className='max-w-[1240px] w-full h-full mx-auto p-2 flex justify-center items-center mb-1'>
-        <div>
-          <p className='uppercase text-sm tracking-widest text-gray-600'>
+    <div id='main' className='w-full min-h-screen text-center'>
+      <div className='max-w-[1240px] w-full min-h-screen mx-auto px-5 pt-28 pb-12 flex justify-center items-center sm:px-6 md:px-8'>
+        <div className='w-full'>
+          <p className='uppercase text-xs sm:text-sm tracking-[0.18em] text-gray-600'>
             <span className='text-blue-500'>Full Stack Developer · Barranquilla, Colombia</span>
           </p>
-          <h1 className='py-4 text-gray-700'>Soy <span className='text-blue-500'>Sebastian Camargo</span></h1>
-          <h1 className='py-2 text-gray-700'>Construyo <span className='text-blue-500'>software empresarial</span></h1>
-          <p className='py-4 text-gray-600 max-w-[78%] m-auto leading-relaxed'>
+          <h1 className='py-4 text-gray-700 leading-tight'>Soy <span className='text-blue-500'>Sebastian Camargo</span></h1>
+          <h1 className='py-2 text-gray-700 leading-tight'>Construyo <span className='text-blue-500'>software empresarial</span></h1>
+          <p className='py-4 text-gray-600 w-full max-w-[760px] m-auto leading-relaxed text-sm sm:text-base'>
             Ingeniero de Sistemas y Desarrollador Full Stack especializado en APIs REST,
             integraciones con SAP Business One, dashboards administrativos y aplicaciones web
             modernas con .NET, SQL Server, Next.js, NestJS, Flutter y Supabase.
           </p>
-          <div className='flex flex-wrap items-center justify-center gap-3 py-2 text-sm text-gray-700'>
+          <div className='flex flex-wrap items-center justify-center gap-2 sm:gap-3 py-2 text-xs sm:text-sm text-gray-700'>
             {['.NET', 'SAP Business One', 'Next.js', 'NestJS', 'Flutter', 'AI-First'].map((tag) => (
-              <span key={tag} className='rounded-full bg-white px-4 py-2 shadow-md shadow-blue-200'>
+              <span key={tag} className='rounded-full bg-white px-3 py-2 sm:px-4 shadow-md shadow-blue-200'>
                 {tag}
               </span>
             ))}
           </div>
-          <div className='flex items-center justify-between max-w-[330px] m-auto py-4'>
+          <div className='flex items-center justify-center gap-4 sm:gap-6 max-w-[330px] m-auto py-5'>
             <Link href='https://www.linkedin.com/in/sebastian-camargo-fullstackdeveloper/'>
-              <div className='rounded-full shadow-lg shadow-blue-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300'>
+              <div className='rounded-full shadow-lg shadow-blue-400 p-4 sm:p-6 cursor-pointer hover:scale-110 ease-in duration-300'>
                 <FaLinkedinIn />
               </div>
             </Link>
             <Link href='https://github.com/SebastianCamargoGarcia'>
-              <div className='rounded-full shadow-lg shadow-blue-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300'>
+              <div className='rounded-full shadow-lg shadow-blue-400 p-4 sm:p-6 cursor-pointer hover:scale-110 ease-in duration-300'>
                 <FaGithub />
               </div>
             </Link>
             <div 
-              className='rounded-full shadow-lg shadow-blue-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300'
+              className='rounded-full shadow-lg shadow-blue-400 p-4 sm:p-6 cursor-pointer hover:scale-110 ease-in duration-300'
               onClick={copyToClipboard}
               onMouseEnter={() => setShowCopyMessageEmail(true)}
               onMouseLeave={() => setShowCopyMessageEmail(false)}
@@ -66,7 +66,7 @@ const Main = () => {
               )}
             </div>
             <div 
-              className='rounded-full shadow-lg shadow-blue-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300'
+              className='rounded-full shadow-lg shadow-blue-400 p-4 sm:p-6 cursor-pointer hover:scale-110 ease-in duration-300'
               onClick={copyToNumero}
               onMouseEnter={() => setShowCopyMessageNumero(true)}
               onMouseLeave={() => setShowCopyMessageNumero(false)}

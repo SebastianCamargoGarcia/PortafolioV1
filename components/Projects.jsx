@@ -61,15 +61,15 @@ const projects = [
 
 const Projects = () => {
     return (
-      <div id='projects' className='w-full p-10 sm:p-8'>
-        <div className='max-w-[1240px] mx-auto px-2 py-16'>
-          <p className='text-xl tracking-widest uppercase text-[#5651e5]'>Proyectos</p>
-          <h2 className='py-4'>Productos web y móviles orientados a gestión, automatización y negocio</h2>
-          <p className='text-gray-600 max-w-[850px] leading-relaxed pb-8'>
+      <div id='projects' className='w-full px-4 sm:px-8 lg:px-10 py-12 sm:py-16'>
+        <div className='max-w-[1240px] mx-auto'>
+          <p className='text-sm sm:text-xl tracking-widest uppercase text-[#5651e5]'>Proyectos</p>
+          <h2 className='py-4 leading-tight'>Productos web y móviles orientados a gestión, automatización y negocio</h2>
+          <p className='text-sm sm:text-base text-gray-600 max-w-[850px] leading-relaxed pb-6 sm:pb-8'>
             Estos proyectos resumen mi experiencia construyendo paneles administrativos, autenticación,
             reportes, catálogos públicos e integraciones para clientes y proyectos académicos.
           </p>
-          <div className='grid md:grid-cols-2 gap-8'>
+          <div className='grid gap-5 sm:gap-8 md:grid-cols-2'>
             {projects.map((project) => (
               <ProjectCard key={project.title} project={project} />
             ))}
@@ -81,16 +81,17 @@ const Projects = () => {
 
 const ProjectCard = ({ project }) => {
   return (
-    <div className='h-full shadow-xl shadow-blue-400 rounded-xl overflow-hidden bg-[#ecf0f3] hover:scale-[1.02] ease-in duration-300'>
-      <div className='relative h-56 w-full bg-gradient-to-r from-[#5651e5] to-[#709dff]'>
-        <Image className='object-cover opacity-30' src={project.image} alt={project.title} fill />
-        <div className='absolute inset-0 flex flex-col justify-end p-6 text-white'>
-          <p className='text-sm font-semibold uppercase tracking-widest'>{project.role}</p>
-          <h3 className='text-3xl tracking-wider'>{project.title}</h3>
+    <div className='h-full overflow-hidden rounded-2xl bg-white shadow-lg shadow-blue-200 hover:scale-[1.02] ease-in duration-300'>
+      <div className='relative h-36 sm:h-56 w-full bg-gradient-to-r from-[#5651e5] to-[#709dff]'>
+        <Image className='object-cover opacity-45' src={project.image} alt={project.title} fill />
+        <div className='absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent' />
+        <div className='absolute inset-0 flex flex-col justify-end p-4 sm:p-6 text-white'>
+          <p className='text-xs sm:text-sm font-semibold uppercase tracking-widest'>{project.role}</p>
+          <h3 className='text-xl sm:text-3xl tracking-wider'>{project.title}</h3>
         </div>
       </div>
-      <div className='p-6'>
-        <p className='text-gray-600 leading-relaxed'>{project.summary}</p>
+      <div className='p-4 sm:p-6'>
+        <p className='text-sm sm:text-base text-gray-600 leading-relaxed'>{project.summary}</p>
         <div className='flex flex-wrap gap-2 py-4'>
           {project.tech.map((tech) => (
             <span key={`${project.title}-${tech}`} className='rounded-full bg-white px-3 py-1 text-xs text-gray-700 shadow-sm'>
@@ -98,30 +99,30 @@ const ProjectCard = ({ project }) => {
             </span>
           ))}
         </div>
-        <ul className='grid sm:grid-cols-2 gap-2 text-sm text-gray-600'>
+        <ul className='flex flex-wrap gap-2 text-xs sm:text-sm text-gray-600'>
           {project.features.map((feature) => (
-            <li key={`${project.title}-${feature}`} className='rounded-lg bg-white/70 px-3 py-2'>
+            <li key={`${project.title}-${feature}`} className='rounded-full bg-[#ecf0f3] px-3 py-2'>
               {feature}
             </li>
           ))}
         </ul>
-        <div className='mt-5 flex flex-wrap gap-3'>
+        <div className='mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap'>
           {project.liveUrl ? (
             <Link href={project.liveUrl}>
-              <p className='inline-block rounded-lg bg-[#5651e5] px-5 py-3 text-white font-semibold cursor-pointer'>
+              <p className='inline-block w-full sm:w-auto text-center rounded-lg bg-[#5651e5] px-5 py-3 text-white font-semibold cursor-pointer'>
                 Ver proyecto
               </p>
             </Link>
           ) : null}
           {project.href ? (
             <Link href={project.href}>
-              <p className='inline-block rounded-lg bg-white px-5 py-3 text-[#5651e5] font-semibold cursor-pointer'>
+              <p className='inline-block w-full sm:w-auto text-center rounded-lg bg-white px-5 py-3 text-[#5651e5] font-semibold cursor-pointer'>
                 Ver en GitHub
               </p>
             </Link>
           ) : null}
           {!project.liveUrl && !project.href ? (
-            <p className='inline-block rounded-lg bg-white px-5 py-3 text-[#5651e5] font-semibold'>
+            <p className='inline-block w-full sm:w-auto text-center rounded-lg bg-white px-5 py-3 text-[#5651e5] font-semibold'>
               Proyecto destacado
             </p>
           ) : null}
