@@ -1,75 +1,82 @@
 import React, { useMemo, useState } from 'react'
 
 const About = () => {
-  // Nuevo: data de experiencias
   const experienceItems = useMemo(
     () => [
       {
         id: 'exp-1',
-        tab: 'Backend — NedugaTech',
-        title: 'Desarrollador Backend — NedugaTech',
-        period: '2024 – Actualidad',
+        tab: '.NET · SAP B1',
+        title: 'Desarrollador Backend — Neduga Tech',
+        period: 'Marzo 2025 – Actualidad',
         description:
-          'Diseño, desarrollo e implementación de soluciones empresariales orientadas a la automatización de procesos e integración ERP.',
+          'Desarrollo servicios de integración para un aplicativo web conectado con SAP Business One, optimizando procesos e interoperabilidad empresarial.',
         bullets: [
-          'APIs REST en .NET (capas, DTOs, AutoMapper, FluentValidation, EF).',
-          'Optimización de SQL Server (SPs, funciones, vistas).',
-          'Reglas de negocio y validaciones a nivel BD (Stored Procedures).',
-          'Integraciones con SAP Business One (DI API y Service Layer).',
-          'Optimización de consultas, transacciones y control de errores.',
+          'APIs REST con ASP.NET Core, C#, Entity Framework Core, DTOs, AutoMapper y FluentValidation.',
+          'Integración con SAP Business One Service Layer para datos maestros y módulos transaccionales.',
+          'Módulos para Business Partners, Items, Employees, Service Calls, Activities y Sales Opportunities.',
+          'Reglas de negocio con SQL Server, Stored Procedures, Functions y Views.',
+          'Publicación de APIs y aplicaciones en Windows Server mediante IIS.',
         ],
       },
       {
         id: 'exp-2',
-        tab: 'Junior — Transkal',
-        title: 'Desarrollador Junior — Adur / Transkal',
-        period: '2024 – 2025',
+        tab: 'Java · ERP',
+        title: 'Desarrollador Java — ADUR / Transkal',
+        period: 'Julio 2024 – Febrero 2025',
         description:
-          'Implementación de soluciones personalizadas en ERP Transkal enfocadas en optimización de procesos empresariales.',
+          'Desarrollé funcionalidades para ERP y una plataforma de mensajería integrada inspirada en WhatsApp Web.',
         bullets: [
-          'Desarrollo de módulos personalizados sobre ERP Transkal.',
-              'Automatización de procesos y validaciones de información.',
-              'Integración de funcionalidades para logística, facturación, inventarios y control administrativo.',
-              'Trabajo colaborativo con equipos multidisciplinarios.',
-              'Buenas prácticas de programación y control de versiones.',
+          'Módulos en Java para automatizar procesos internos.',
+          'Validaciones de negocio para mantener integridad y consistencia de información.',
+          'Mantenimiento evolutivo del ERP para diferentes clientes.',
+          'Trabajo colaborativo con SVN y metodologías de desarrollo en equipo.',
         ],
       },
       {
         id: 'exp-3',
-        tab: 'Soporte SAP — NedugaTech',
-        title: 'Soporte e Implementación SAP B1 — NedugaTech',
-        period: '2024',
+        tab: 'Soporte SAP',
+        title: 'Ingeniero de Soporte SAP Business One — Neduga Tech',
+        period: 'Febrero 2023 – Abril 2024',
         description:
-          'Soporte especializado con reglas de negocio y validaciones en base de datos para SAP Business One.',
+          'Brindé soporte funcional y técnico para SAP Business One, adaptando el ERP a procesos específicos de cada empresa.',
         bullets: [
           'Resolución de incidencias funcionales y técnicas.',
-          'Restricciones y validaciones mediante Stored Procedures.',
-          'Adaptación de SAP a procesos de clientes.',
-          'Optimización de integridad de datos.',
+          'Personalizaciones y validaciones mediante Stored Procedures en SQL Server.',
+          'Capacitación a usuarios finales y soporte continuo.',
+          'Automatización de reglas de negocio para mejorar la estabilidad operativa.',
+        ],
+      },
+      {
+        id: 'exp-4',
+        tab: 'Full Stack',
+        title: 'Full Stack Developer — Freelance',
+        period: 'Enero 2021 – Octubre 2023',
+        description:
+          'Construí soluciones web para turismo, salud, comercio y gestión empresarial, desde frontend hasta base de datos y despliegue.',
+        bullets: [
+          'Backend en Go para sistema de comandas de restaurantes con APIs REST.',
+          'Turismo App con Next.js, Supabase, PostgreSQL, autenticación, roles, dashboard, Kanban y métricas financieras.',
+          'Catálogos públicos con integración a WhatsApp para mejorar captación de clientes.',
+          'Paneles administrativos con React, TypeScript, Tailwind CSS y Supabase.',
         ],
       }
     ],
     []
   )
 
-  // Nuevo: hover + pin (click)
   const [hoveredId, setHoveredId] = useState(null)
   const [pinnedId, setPinnedId] = useState(experienceItems[0]?.id || null)
 
-  // Nuevo: activo = pinned si existe, si no hovered, si no primero
   const activeId = pinnedId || hoveredId || experienceItems[0]?.id
 
-  // Nuevo: toggle pin
   const handlePin = (id) => {
     setPinnedId((prevPinnedId) => (prevPinnedId === id ? null : id))
   }
 
-  // Nuevo: item activo
   const activeItem = useMemo(() => {
     return experienceItems.find((x) => x.id === activeId) || experienceItems[0]
   }, [activeId, experienceItems])
 
-  // Nuevo: forma de “flecha”
   const getArrowClipPath = (isLast) => {
     if (isLast) return 'polygon(0 0, 100% 0, 100% 100%, 0 100%, 8% 50%)'
     return 'polygon(0 0, 92% 0, 100% 50%, 92% 100%, 0 100%, 8% 50%)'
@@ -80,11 +87,15 @@ const About = () => {
       <div className='max-w-[1240px] mx-auto md:grid grid-cols-3 gap-8'>
         <div className='col-span-2'>
           <p className='uppercase text-xl tracking-widest text-[#5651e5]'>Experiencia Profesional</p>
+          <h2 className='py-4'>De soporte SAP a desarrollo Full Stack empresarial</h2>
+          <p className='text-gray-600 leading-relaxed'>
+            Combino conocimiento funcional de ERP, backend robusto y desarrollo web moderno para crear
+            integraciones, paneles administrativos y aplicaciones orientadas a automatizar procesos reales.
+          </p>
 
           <div className='mt-6'>
-            {/* Nuevo: Stepper horizontal */}
             <div className='w-full overflow-x-auto pb-2'>
-              <div className='min-w-[760px] flex items-center'>
+              <div className='min-w-[900px] flex items-center'>
                 {experienceItems.map((item, index) => {
                   const isActive = item.id === activeId
                   const isPinned = item.id === pinnedId
@@ -110,7 +121,6 @@ const About = () => {
                         >
                           <span className='px-3 whitespace-nowrap'>{item.tab}</span>
 
-                          {/* Nuevo: punto indicador */}
                           <span
                             className={[
                               'absolute -top-2 left-1/2 -translate-x-1/2 h-3 w-3 rounded-full border',
@@ -125,7 +135,6 @@ const About = () => {
                 })}
               </div>
             </div>
-            {/* Nuevo: Panel único SIEMPRE abajo */}
             <div className='mt-5'>
               {activeItem ? <ExperienceCard item={activeItem} isPinned={pinnedId === activeItem.id} /> : null}
             </div>
@@ -140,7 +149,6 @@ const About = () => {
   )
 }
 
-// Nuevo: tarjeta de detalle
 const ExperienceCard = ({ item, isPinned }) => {
   return (
     <div className='rounded-2xl border border-gray-200 bg-white p-6 shadow-sm'>

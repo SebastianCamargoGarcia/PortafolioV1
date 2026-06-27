@@ -1,42 +1,46 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { AiOutlineClose, AiOutlineMail, AiOutlineMenu } from 'react-icons/ai';
-import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
 import { BsFillPersonLinesFill } from 'react-icons/bs';
-import { useRouter } from 'next/router';
+import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
+
+const navLinks = [
+  { label: 'Inicio', href: '#main' },
+  { label: 'Experiencia', href: '#about' },
+  { label: 'Habilidades', href: '#skills' },
+  { label: 'Proyectos', href: '#projects' },
+];
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
-  const [shadow, setShadow] = useState(false);
-  const [navBg, setNavBg] = useState('#ecf0f3');
-  const [linkColor, setLinkColor] = useState('#1f2937');
-  const router = useRouter();
+  const [isScrolled, setIsScrolled] = useState(false);
   const [showCopyMessageEmail, setShowCopyMessageEmail] = useState(false);
   const [showCopyMessageNumero, setShowCopyMessageNumero] = useState(false);
 
-  useEffect(() => {
-    setNavBg('#ecf0f3');
-    setLinkColor('#1f2937');
-  }, [router]);
-
-  const handleNav = () => {
-    setNav(!nav);
-  };
+  const email = 'ssebastiancamargo19@gmail.com';
+  const numero = '+57 3005516355';
 
   useEffect(() => {
     const handleShadow = () => {
-      if (window.scrollY >= 90) {
-        setShadow(true);
-      } else {
-        setShadow(false);
-      }
+      setIsScrolled(window.scrollY >= 40);
     };
+
+    handleShadow();
     window.addEventListener('scroll', handleShadow);
+
+    return () => {
+      window.removeEventListener('scroll', handleShadow);
+    };
   }, []);
 
-  const email = 'ssebastiancamargo19@gmail.com';
-  const numero = '+57 3005516355';
+  const handleNav = () => {
+    setNav((current) => !current);
+  };
+
+  const closeNav = () => {
+    setNav(false);
+  };
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(email);
@@ -50,130 +54,168 @@ const Navbar = () => {
     setTimeout(() => setShowCopyMessageNumero(false), 2000);
   };
 
-  
   return (
-    <div
-      style={{ backgroundColor: `${navBg}` }}
+    <header
       className={
-        shadow
-          ? 'fixed w-full h-20 shadow-xl z-[100] ease-in-out duration-300'
-          : 'fixed w-full h-20 z-[100]'
+        isScrolled
+          ? 'fixed top-0 w-full z-[100] border-b border-white/60 bg-[#ecf0f3]/90 shadow-lg shadow-blue-100/70 backdrop-blur-xl ease-in-out duration-300'
+          : 'fixed top-0 w-full z-[100] bg-[#ecf0f3]/80 backdrop-blur-md ease-in-out duration-300'
       }
     >
-      <div className='flex justify-between items-center w-full h-full px-2 2xl:px-16 shadow-xl'>
-        <Image src='/Imagenes/Logo.png' alt='/' width='70' height='50' />
-        <div>
-          <ul style={{ color: `${linkColor}` }} className='hidden md:flex'>
-            <li className='ml-10 text-sm uppercase hover:border-b'>
-              <a href='#main'>Inicio</a>
-            </li>
-            <li className='ml-10 text-sm uppercase hover:border-b'>
-              <a href='#about'>Sobre mí</a>
-            </li>
-            <li className='ml-10 text-sm uppercase hover:border-b'>
-              <a href='#skills'>Habilidades</a>
-            </li>
-            <li className='ml-10 text-sm uppercase hover:border-b'>
-              <a href='#projects'>Proyectos</a>
-            </li>
-            <li className='ml-10 text-sm uppercase hover:border-b'>
-              <a href='#contact'>Contáctame</a>
-            </li>
-          </ul>
-          <div style={{ color: `${linkColor}` }} onClick={handleNav} className='md:hidden'>
-            <AiOutlineMenu size={30} />
+      <div className='mx-auto flex h-20 max-w-[1240px] items-center justify-between px-4 sm:px-6 lg:px-8'>
+        <a href='#main' className='flex items-center gap-3'>
+          <div className='h-12 w-12 overflow-hidden rounded-2xl bg-[#020617] shadow-lg shadow-blue-200 ring-1 ring-white/70'>
+            <Image
+              src='/Imagenes/logo-sebastian-camargo.png'
+              alt='Sebastian Camargo logo'
+              width='48'
+              height='48'
+              className='h-full w-full object-cover'
+            />
           </div>
+          <div className='hidden sm:block leading-tight'>
+            <p className='text-sm font-bold text-gray-900'>Sebastian Camargo</p>
+            <p className='text-xs font-semibold text-[#5651e5]'>Full Stack Developer</p>
+          </div>
+        </a>
+
+        <nav className='hidden md:flex items-center gap-2'>
+          {navLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className='rounded-full px-4 py-2 text-sm font-semibold text-gray-700 transition hover:bg-white hover:text-[#5651e5] hover:shadow-sm'
+            >
+              {link.label}
+            </a>
+          ))}
+        </nav>
+
+        <div className='hidden md:flex items-center gap-3'>
+          <Link href='https://github.com/SebastianCamargoGarcia'>
+            <div className='rounded-full bg-white/80 p-3 text-gray-700 shadow-sm transition hover:-translate-y-0.5 hover:text-[#5651e5] hover:shadow-md cursor-pointer'>
+              <FaGithub />
+            </div>
+          </Link>
+          <Link href='https://www.linkedin.com/in/sebastian-camargo-fullstackdeveloper/'>
+            <div className='rounded-full bg-white/80 p-3 text-gray-700 shadow-sm transition hover:-translate-y-0.5 hover:text-[#5651e5] hover:shadow-md cursor-pointer'>
+              <FaLinkedinIn />
+            </div>
+          </Link>
+          <a
+            href='#contact'
+            className='rounded-full bg-gradient-to-r from-[#5651e5] to-[#709dff] px-5 py-3 text-sm font-bold text-white shadow-lg shadow-blue-300 transition hover:-translate-y-0.5'
+          >
+            Hablemos
+          </a>
+        </div>
+
+        <div onClick={handleNav} className='md:hidden rounded-full bg-white/80 p-3 text-gray-800 shadow-md cursor-pointer'>
+          <AiOutlineMenu size={28} />
         </div>
       </div>
 
       <div className={nav ? 'md:hidden fixed left-0 top-0 w-full h-screen bg-black/70' : ''}>
-        <div
+        <aside
           className={
             nav
-              ? 'fixed left-0 top-0 w-[75%] sm:w-[60%] md:w-[45%] h-screen bg-[#ecf0f3] p-10 ease-in duration-500'
-              : 'fixed left-[-100%] top-0 p-10 ease-in duration-500'
+              ? 'fixed left-0 top-0 w-[82%] sm:w-[60%] h-screen bg-[#ecf0f3] p-8 ease-in duration-500 shadow-2xl'
+              : 'fixed left-[-100%] top-0 p-8 ease-in duration-500'
           }
         >
-          <div>
-            <div className='flex w-full items-center justify-between'>
-              <Image src='/Imagenes/Logo.png' width='87' height='35' alt='/' />
-              <div onClick={handleNav} className='rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer'>
-                <AiOutlineClose />
+          <div className='flex w-full items-center justify-between'>
+            <div className='flex items-center gap-3'>
+              <div className='h-12 w-12 overflow-hidden rounded-2xl bg-[#020617] shadow-lg shadow-blue-200 ring-1 ring-white/70'>
+                <Image
+                  src='/Imagenes/logo-sebastian-camargo.png'
+                  width='48'
+                  height='48'
+                  alt='Sebastian Camargo logo'
+                  className='h-full w-full object-cover'
+                />
+              </div>
+              <div>
+                <p className='font-bold text-gray-900'>Sebastian Camargo</p>
+                <p className='text-xs font-semibold text-[#5651e5]'>Full Stack Developer</p>
               </div>
             </div>
-            <div className='border-b border-gray-300 my-4'>
-              <p className='w-[85%] md:w-[90%] py-4'>Creemos algo juntos</p>
+            <div onClick={handleNav} className='rounded-full bg-white shadow-lg shadow-gray-300 p-3 cursor-pointer'>
+              <AiOutlineClose />
             </div>
           </div>
+
+          <div className='border-b border-gray-300 my-4'>
+            <p className='w-[90%] py-4 text-sm text-gray-600'>
+              APIs, integraciones, dashboards y soluciones Full Stack para procesos empresariales.
+            </p>
+          </div>
+
           <div className='py-4 flex-col'>
-            <ul className='uppercase'>
-              
-                <li onClick={handleNav} className='py-4 text-sm'>
-                <a href='#main'>Inicio</a>
+            <ul className='space-y-2'>
+              {navLinks.map((link) => (
+                <li onClick={closeNav} className='text-sm' key={`mobile-${link.href}`}>
+                  <a
+                    href={link.href}
+                    className='block rounded-xl px-4 py-3 font-semibold text-gray-700 transition hover:bg-white hover:text-[#5651e5]'
+                  >
+                    {link.label}
+                  </a>
                 </li>
-              
-              
-                <li onClick={handleNav} className='py-4 text-sm'>
-                <a href='#about'>Sobre mí</a>
-                </li>
-              
-              
-                <li onClick={handleNav} className='py-4 text-sm' >
-                <a href='#skills'>Habilidades</a>
-                </li>
-              
-             
-                <li onClick={handleNav} className='py-4 text-sm'>
-                <a href='#projects'>Proyectos</a>                
-                </li>
-              
-              
-                <li onClick={handleNav} className='py-4 text-sm'>
-                <a href='#contact'>Contáctame</a>
-                </li>
-              
+              ))}
             </ul>
-            <div className='pt-40'>
-              <p className='uppercase tracking-widest text-[#5651e5]'>¡Contáctame!</p>
-              <div className='flex items-center justify-between my-4 w-full sm:w-[80%]'>
-                <Link href='https://www.linkedin.com/in/sebastian-camargo-2998b7177/'>
-                  <div className='rounded-full shadow-lg shadow-blue-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300'>
+
+            <div className='pt-12'>
+              <a
+                href='#contact'
+                onClick={closeNav}
+                className='block rounded-2xl bg-gradient-to-r from-[#5651e5] to-[#709dff] px-5 py-4 text-center font-bold text-white shadow-lg shadow-blue-300'
+              >
+                Trabajemos juntos
+              </a>
+              <p className='pt-8 uppercase tracking-widest text-[#5651e5]'>Contacto directo</p>
+              <div className='flex items-start justify-between my-4 w-full sm:w-[80%]'>
+                <Link href='https://www.linkedin.com/in/sebastian-camargo-fullstackdeveloper/'>
+                  <div className='rounded-full bg-white shadow-lg shadow-blue-200 p-3 cursor-pointer hover:scale-105 ease-in duration-300'>
                     <FaLinkedinIn />
                   </div>
                 </Link>
                 <Link href='https://github.com/SebastianCamargoGarcia'>
-                  <div className='rounded-full shadow-lg shadow-blue-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300'>
+                  <div className='rounded-full bg-white shadow-lg shadow-blue-200 p-3 cursor-pointer hover:scale-105 ease-in duration-300'>
                     <FaGithub />
                   </div>
                 </Link>
-                <div 
-                    className='rounded-full shadow-lg shadow-blue-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300'
-                    onClick={copyToClipboard}
-                    onMouseEnter={() => setShowCopyMessageEmail(true)}
-                    onMouseLeave={() => setShowCopyMessageEmail(false)}
-                  >
-                    <AiOutlineMail />
-                    {showCopyMessageEmail && (
-                      <div className="text-center text-xs text-gray-500 pt-1">Haz clic para copiar mi correo</div>
-                    )}
-                  </div>
-                  <div 
-                    className='rounded-full shadow-lg shadow-blue-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300'
-                    onClick={copyToNumero}
-                    onMouseEnter={() => setShowCopyMessageNumero(true)}
-                    onMouseLeave={() => setShowCopyMessageNumero(false)}
-                  >
-                    <BsFillPersonLinesFill />
-                    {showCopyMessageNumero && (
-                      <div className="text-center text-xs text-gray-500 pt-1">Haz clic para copiar mi número</div>
-                    )}
-                  </div>
+                <div
+                  className='relative rounded-full bg-white shadow-lg shadow-blue-200 p-3 cursor-pointer hover:scale-105 ease-in duration-300'
+                  onClick={copyToClipboard}
+                  onMouseEnter={() => setShowCopyMessageEmail(true)}
+                  onMouseLeave={() => setShowCopyMessageEmail(false)}
+                >
+                  <AiOutlineMail />
+                  {showCopyMessageEmail && (
+                    <div className='absolute left-1/2 top-12 w-36 -translate-x-1/2 rounded-lg bg-white p-2 text-center text-xs text-gray-500 shadow-lg'>
+                      Copiar correo
+                    </div>
+                  )}
+                </div>
+                <div
+                  className='relative rounded-full bg-white shadow-lg shadow-blue-200 p-3 cursor-pointer hover:scale-105 ease-in duration-300'
+                  onClick={copyToNumero}
+                  onMouseEnter={() => setShowCopyMessageNumero(true)}
+                  onMouseLeave={() => setShowCopyMessageNumero(false)}
+                >
+                  <BsFillPersonLinesFill />
+                  {showCopyMessageNumero && (
+                    <div className='absolute left-1/2 top-12 w-36 -translate-x-1/2 rounded-lg bg-white p-2 text-center text-xs text-gray-500 shadow-lg'>
+                      Copiar número
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        </aside>
       </div>
-    </div>
+    </header>
   );
 };
 

@@ -6,7 +6,7 @@ import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
 
 const Main = () => {
   const email = 'ssebastiancamargo19@gmail.com';
-  const numero = ' +57 3005516355';
+  const numero = '+57 3005516355';
   const [showCopyMessageEmail, setShowCopyMessageEmail] = useState(false);
   const [showCopyMessageNumero, setShowCopyMessageNumero] = useState(false);
 
@@ -26,16 +26,25 @@ const Main = () => {
     <div id='main' className='w-full h-screen text-center'>
       <div className='max-w-[1240px] w-full h-full mx-auto p-2 flex justify-center items-center mb-1'>
         <div>
-          <p className='uppercase text-sm tracking-widest text-gray-600'><span className='text-blue-500'>¡Bienvenido!</span></p>
-          <h1 className='py-4 text-gray-700'>Soy <span className='text-blue-500'>Sebastian</span></h1>
-          <h1 className='py-2 text-gray-700'>Un <span className='text-blue-500'>Desarrollador</span></h1>
-          <p className='py-4 text-gray-600 max-w-[70%] m-auto'>
-            Desarrollador Backend con más de un año de experiencia en .NET y SQL Server, enfocado en soluciones empresariales basadas en Clean Architecture y principios SOLID. 
-Experiencia en integración ERP (SAP Business One), desarrollo de APIs REST y automatización de procesos orientados al rendimiento y la escalabilidad.
-
+          <p className='uppercase text-sm tracking-widest text-gray-600'>
+            <span className='text-blue-500'>Full Stack Developer · Barranquilla, Colombia</span>
           </p>
+          <h1 className='py-4 text-gray-700'>Soy <span className='text-blue-500'>Sebastian Camargo</span></h1>
+          <h1 className='py-2 text-gray-700'>Construyo <span className='text-blue-500'>software empresarial</span></h1>
+          <p className='py-4 text-gray-600 max-w-[78%] m-auto leading-relaxed'>
+            Ingeniero de Sistemas y Desarrollador Full Stack especializado en APIs REST,
+            integraciones con SAP Business One, dashboards administrativos y aplicaciones web
+            modernas con .NET, SQL Server, Next.js, NestJS, Flutter y Supabase.
+          </p>
+          <div className='flex flex-wrap items-center justify-center gap-3 py-2 text-sm text-gray-700'>
+            {['.NET', 'SAP Business One', 'Next.js', 'NestJS', 'Flutter', 'AI-First'].map((tag) => (
+              <span key={tag} className='rounded-full bg-white px-4 py-2 shadow-md shadow-blue-200'>
+                {tag}
+              </span>
+            ))}
+          </div>
           <div className='flex items-center justify-between max-w-[330px] m-auto py-4'>
-            <Link href='https://www.linkedin.com/in/sebastian-camargo-2998b7177/'>
+            <Link href='https://www.linkedin.com/in/sebastian-camargo-fullstackdeveloper/'>
               <div className='rounded-full shadow-lg shadow-blue-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300'>
                 <FaLinkedinIn />
               </div>
